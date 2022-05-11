@@ -104,7 +104,8 @@ namespace Tisinalite
                 string path = Path.Combine(Global.NotesDir, input.Entry);
 
                 if (!input.Result) return;
-                File.Create(path);
+                var file = File.Create(path);
+                file.Close();
                 notePath = path;
             }
             catch (Exception e)
